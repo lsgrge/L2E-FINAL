@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="L2E" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/L2E" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/L2E" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++14" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="geometrie/coords.cpp" />
+		<Unit filename="geometrie/coords.h" />
+		<Unit filename="geometrie/maillage.cpp" />
+		<Unit filename="geometrie/maillage.h" />
+		<Unit filename="geometrie/sommet.cpp" />
+		<Unit filename="geometrie/sommet.h" />
+		<Unit filename="geometrie/triangle.cpp" />
+		<Unit filename="geometrie/triangle.h" />
+		<Unit filename="graphisme/couleur.cpp" />
+		<Unit filename="graphisme/couleur.h" />
+		<Unit filename="graphisme/lexiquec.cpp" />
+		<Unit filename="graphisme/lexiquec.h" />
+		<Unit filename="graphisme/styledessin.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="menu/console.cpp" />
+		<Unit filename="menu/console.h" />
+		<Unit filename="menu/menu.cpp" />
+		<Unit filename="menu/menu.h" />
+		<Unit filename="objet/grid.cpp" />
+		<Unit filename="objet/grid.h" />
+		<Unit filename="objet/immeuble.cpp" />
+		<Unit filename="objet/immeuble.h" />
+		<Unit filename="objet/montagne.cpp" />
+		<Unit filename="objet/montagne.h" />
+		<Unit filename="objet/objet.h" />
+		<Unit filename="objet/soleil.cpp" />
+		<Unit filename="objet/soleil.h" />
+		<Unit filename="plan.cpp" />
+		<Unit filename="plan.h" />
+		<Unit filename="scene.cpp" />
+		<Unit filename="scene.h" />
+		<Unit filename="svg/svgfile.cpp" />
+		<Unit filename="svg/svgfile.h" />
+		<Unit filename="util/util.cpp" />
+		<Unit filename="util/util.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
