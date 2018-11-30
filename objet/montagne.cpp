@@ -22,6 +22,7 @@ void Montagne::initialiser(std::mt19937& graine)
     std::cout << m_nb << std::endl;
 
     int monts=m_nb+2;
+    if(monts>7) monts=7;
     double tailleX = util::alea(5*250/monts, 5*500/monts, graine), tailleY = util::alea(tailleX/(4*monts), 75.0, graine);
 
     for(int i=0; i<m_nb; ++i)

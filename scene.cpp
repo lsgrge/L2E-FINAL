@@ -45,3 +45,12 @@ void Scene::dessiner()
 
     filtre(visuel);
 }
+
+void Scene::liberer()
+{
+    for(const auto& pt:m_plans)
+    {
+        pt->liberer();
+        delete pt;
+    }
+}

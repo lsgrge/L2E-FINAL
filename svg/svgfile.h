@@ -32,9 +32,12 @@ class Svgfile
                             std::string color);
         void addTraits(double x, double y, double width, double height,
                        std::string color1, std::string color2);
-        void addGradient(std::string grad, double x1, double y1, double x2, double y2,
+        void linearGradient(std::string grad, double x1, double y1, double x2, double y2,
                            double offset1, std::string color1, double opacity,
                            double offset2, std::string color2);
+        void radialGradient(std::string grad, double cx, double cy, double r, double fx, double fy,
+                           double offset1, std::string color1, double opacity1,
+                           double offset2, std::string color2, double opacity2);
         void addLine(double x1, double y1, double x2, double y2, std::string color=defcol);
         void addCross(double x, double y, double span, std::string color=defcol);
 

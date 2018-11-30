@@ -18,18 +18,17 @@ void Soleil::def_ton()
 void Soleil::dessinersoleil(Svgfile& svgout, std::mt19937& graine)
 {
     int choix=util::alea(1, 2, graine);
-    std::cout << "choix pour le soleil (1.ton / 2.degrade)" << choix << std::endl;
+    std::cout << "choix pour le soleil (1.ton / 2.degrade) :" << choix << std::endl;
 
     if(choix == 1)
         def_ton();
 
     if(m_couleur.getRouge() == 255 && m_couleur.getVert() == 255 && m_couleur.getBleu() == 255)
-    {
         m_couleur = choixcouleur(graine);
-    }
 
-    svgout.addGradient("gradS", 0, 0, 10, 100, 0, m_couleur, 1, 100, m_secondaire);
+    svgout.linearGradient("gradS", 0, 0, 10, 100, 0, m_couleur, 1, 100, m_secondaire);
     svgout.addSoleil(m_centre.getX(), m_centre.getY(), m_rayon, "gradS");
+
 }
 
 void Soleil::dessinerrect(Svgfile& svgout)

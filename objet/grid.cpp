@@ -20,7 +20,7 @@ double AskEcartLignes(int densite, std::mt19937& graine)
     if(densite == 2)//densite minimale choisi
         x = util::alea(60.0, 75.0, graine);
 
-    std:: cout << std::endl << "ecart x = " << x;
+    std:: cout << std::endl << "Ecart case x = " << x;
 
     return x;
 

@@ -47,12 +47,26 @@ void Plan::plan1()
 
 void Plan::plan2()
 {
+    double tailleCase=AskEcartLignes(m_densite, m_graine);
     Grid* maGrid = new Grid;
-    maGrid->remplir(AskEcartLignes(m_densite, m_graine), m_couleur);
+    maGrid->remplir(tailleCase, m_couleur);
     m_objets.push_back(maGrid);
+
+    /*int de, a;
+    amplitude(de, a);
+    int nbre = util::alea(de*3,a*3,m_graine);
+    std::cout << "Nombre palmier choisi " << nbre << std::endl;
+
+    for (int i=0; i<nbre; i++)
+    {
+        Palmier* nouv = new Palmier;
+        nouv->remplir(m_couleur);
+        nouv->initialiser(m_graine);
+        m_objets.push_back(nouv);
+    }*/
 }
 
-void Plan::paramtere_graine(const std::mt19937& graine)
+void Plan::paramtre_graine(const std::mt19937& graine)
 {
     m_graine=graine;
 }
@@ -107,8 +121,9 @@ void Plan::etoiles(Svgfile& svgout)
 
 void Plan::gradient(Svgfile& svgout, const Couleur fond)
 {
-    svgout.addGradient("grad", 0, 0, 0, 100, 0, fond, 1, 100, m_couleur);
-    svgout.addRectangle(0, 800-270-200, 1000, 200, "grad");
+    /*svgout.linearGradient("gradM", 0, 0, 0, 100, 0, fond, 1, 100, m_couleur);*/
+    svgout.radialGradient("gradM", 50, 50, 50, 50, 50, 0, m_couleur, 1, 100, fond, 0);
+    svgout.addRectangle(-400, 200, 1800, 500, "gradM");
 }
 
 void Plan::liberer()
@@ -116,9 +131,13 @@ void Plan::liberer()
     for (const auto& pt : m_objets)
     {
         Montagne* pM=dynamic_cast<Montagne*>(pt);
+        Palmier* pP=dynamic_cast<Palmier*>(pt);
 
         if(pM)
             pt->liberer();
+        if(pP)
+            pt->liberer();
+
 
         delete pt;
     }

@@ -5,12 +5,13 @@
 #include "objet/immeuble.h"
 #include "objet/montagne.h"
 #include "objet/soleil.h"
+#include "objet/palmier.h"
 
 class Plan
 {
     public :
         void remplir(const std::mt19937& graine, const Couleur couleur, const double densite);
-        void paramtere_graine(const std::mt19937& graine);
+        void paramtre_graine(const std::mt19937& graine);
         void parametre_couleur(const Couleur couleur);
         void parametre_densite(const int choix);
         void dessiner(Svgfile& svgout);

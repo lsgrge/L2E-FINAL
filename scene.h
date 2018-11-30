@@ -8,6 +8,7 @@ class Scene
     public :
         void initialiser();
         void dessiner();
+        void liberer();
 
     private :
         Couleur m_couleur_fond;

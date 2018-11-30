@@ -10,7 +10,6 @@
 
 class Grid : public Objet
 {
-
     public :
         Grid();
         //Grid(double ecart, Couleur col);

@@ -31,7 +31,7 @@ int Immeuble::choixhauteur(std::mt19937& graine)
 
 int Immeuble::choixlargeur(std::mt19937& graine)
 {
-    int largeur = util::alea(45,75, graine);
+    int largeur = util::alea(45, 210, graine);
     return largeur;
 }
 
@@ -63,13 +63,13 @@ void Immeuble::verif()
 void Immeuble::dessinerFenetre(Svgfile& svgout, std::mt19937& graine)
 {
     ///pour la phase de test
-    //std::cout << "hauteur " << m_hauteur << " largeur " << m_largeur << std::endl;
-    //std::cout << "couleur des fenetres";
-    //m_couleur.afficher();
-    //std::cout << "couleur choisie";
-    //m_secondaire.afficher();
-    //std::cout << "coordonnee choisie";
-    //m_posBG.afficher();
+    /*std::cout << "hauteur " << m_hauteur << " largeur " << m_largeur << std::endl;
+    std::cout << "couleur des fenetres";
+    m_couleur.afficher();
+    std::cout << "couleur choisie";
+    m_secondaire.afficher();
+    std::cout << "coordonnee choisie";
+    m_posBG.afficher();*/
 
     Couleur gris{24,24,24};
 
@@ -82,7 +82,7 @@ void Immeuble::dessinerFenetre(Svgfile& svgout, std::mt19937& graine)
     {
         for (int i = m_posBG.getX()+ ecart; i<m_posBG.getX()+m_largeur; i = i + dec)
         {
-            if (util::alea(0.0,1.0,graine) <= ratio ) //fenetres allumees
+            if (util::alea(0.0,1.0,graine) <= ratio ) ///fenetres allumees
             {
                 //std::cout<<"choisi " ;
                 svgout.addRectangle(i, j,

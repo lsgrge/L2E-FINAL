@@ -58,6 +58,8 @@
 		<Unit filename="objet/montagne.cpp" />
 		<Unit filename="objet/montagne.h" />
 		<Unit filename="objet/objet.h" />
+		<Unit filename="objet/palmier.cpp" />
+		<Unit filename="objet/palmier.h" />
 		<Unit filename="objet/soleil.cpp" />
 		<Unit filename="objet/soleil.h" />
 		<Unit filename="plan.cpp" />

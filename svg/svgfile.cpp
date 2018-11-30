@@ -174,7 +174,7 @@ void Svgfile::addRectangle(double x1, double y1, double x2, double y2,
             << "\" />\n";
 }
 
-void Svgfile:: addGradient(std::string grad, double x1, double y1, double x2, double y2,
+void Svgfile:: linearGradient(std::string grad, double x1, double y1, double x2, double y2,
                            double offset1, std::string color1, double opacity,
                            double offset2, std::string color2)
 {
@@ -196,14 +196,31 @@ void Svgfile:: addGradient(std::string grad, double x1, double y1, double x2, do
             << "\" />\n";
     m_ostrm << "</linearGradient>\n";
     m_ostrm << "</defs>\n";
+}
 
-    /*m_ostrm << "<rect x=\""
-            << x << "\" y=\""
-            << y << "\" width=\""
-            << width << "\" height=\""
-            << height << "\" fill=\"url(#"
-            //<< attrib("fill", color1)
-            << grad <<")\" />\n";*/
+void Svgfile:: radialGradient(std::string grad, double cx, double cy, double r, double fx, double fy,
+                           double offset1, std::string color1, double opacity1,
+                           double offset2, std::string color2, double opacity2)
+{
+    m_ostrm <<"<defs>\n";
+    m_ostrm << "<radialGradient id=\""
+            << grad << "\" cx=\""
+            << cx << "%\" cy=\""
+            << cy << "%\" r=\""
+            << r << "%\" fx=\""
+            << fx << "%\" fy=\""
+            << fy << "%\">\n";
+
+    m_ostrm << "<stop offset=\"" << offset1
+            << "%\" style=\"stop-color:" << color1
+            << ";stop-opacity:" << opacity1
+            << "\" />\n";
+    m_ostrm << "<stop offset=\"" << offset2
+            << "%\" style=\"stop-color:" << color2
+            << ";stop-opacity:" << opacity2
+            << "\" />\n";
+    m_ostrm << "</radialGradient>\n";
+    m_ostrm << "</defs>\n";
 }
 
 void Svgfile::addLine(double x1, double y1, double x2, double y2, std::string color)
