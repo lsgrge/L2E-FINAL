@@ -5,7 +5,6 @@
 #include "../util/util.h"
 #include <vector>
 
-
 class Maillage
 {
     public:

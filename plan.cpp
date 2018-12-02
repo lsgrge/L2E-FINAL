@@ -52,18 +52,16 @@ void Plan::plan2()
     maGrid->remplir(tailleCase, m_couleur);
     m_objets.push_back(maGrid);
 
-    /*int de, a;
-    amplitude(de, a);
-    int nbre = util::alea(de*3,a*3,m_graine);
-    std::cout << "Nombre palmier choisi " << nbre << std::endl;
 
-    for (int i=0; i<nbre; i++)
-    {
-        Palmier* nouv = new Palmier;
-        nouv->remplir(m_couleur);
-        nouv->initialiser(m_graine);
-        m_objets.push_back(nouv);
-    }*/
+    Palmier* coteG = new Palmier;
+    coteG->remplir(m_couleur);
+    coteG->initialiser(m_graine, tailleCase*0.7, Coords{0, 800-tailleCase});
+    m_objets.push_back(coteG);
+
+    Palmier* coteD = new Palmier;
+    coteD->remplir(m_couleur);
+    coteD->initialiser(m_graine, tailleCase*0.7, Coords{1000, 800-tailleCase}, -1);
+    m_objets.push_back(coteD);
 }
 
 void Plan::paramtre_graine(const std::mt19937& graine)
@@ -121,7 +119,6 @@ void Plan::etoiles(Svgfile& svgout)
 
 void Plan::gradient(Svgfile& svgout, const Couleur fond)
 {
-    /*svgout.linearGradient("gradM", 0, 0, 0, 100, 0, fond, 1, 100, m_couleur);*/
     svgout.radialGradient("gradM", 50, 50, 50, 50, 50, 0, m_couleur, 1, 100, fond, 0);
     svgout.addRectangle(-400, 200, 1800, 500, "gradM");
 }

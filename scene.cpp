@@ -10,7 +10,7 @@ void filtre(Svgfile& svgout)
 void Scene::initialiser()
 {
     m_couleur_fond=Couleur{24, 24, 24};
-    std::mt19937 graine{69};
+    std::mt19937 graine{2019};
 
     for(size_t i=0; i<3; ++i)
     {

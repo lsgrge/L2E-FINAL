@@ -45,6 +45,24 @@ Coords operator+(const Coords& c1, const Coords& c2)
     return { c1.m_x + c2.m_x, c1.m_y + c2.m_y };
 }
 
+/// Soustraction vectorielle
+Coords operator-(const Coords& c1, const Coords& c2)
+{
+    return { c1.m_x - c2.m_x, c1.m_y - c2.m_y };
+}
+
+/// Produit vectoriel
+double operator*(const Coords& c1, const Coords& c2)
+{
+    return c1.m_x*c2.m_x + c1.m_y*c2.m_y ;
+}
+
+/// Multiplication par un réel
+Coords operator*(double m, const Coords& c)
+{
+    return { m*c.m_x, m*c.m_y };
+}
+
 void Coords::blinderPos()
 {
     if(m_x<0) m_x=0;
