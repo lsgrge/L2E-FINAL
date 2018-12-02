@@ -9,9 +9,9 @@
 
                Selection des plans a modifier
 
-	     Selection des parametre a modifier
+	     		   Save
 
-	     		Parametres
+			 Load save
 
 			  Quitter
 

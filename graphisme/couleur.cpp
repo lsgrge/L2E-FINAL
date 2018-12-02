@@ -65,3 +65,9 @@ Couleur choixcouleur(std::mt19937& graine)
    ok = dicocouleur[ util::alea(0, dicocouleur.size()-1, graine) ];
    return ok;
 }
+
+Couleur choixcouleur(int posDicoCouleur)
+{
+    return dicocouleur[posDicoCouleur];
+}
+

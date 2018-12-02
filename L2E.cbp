@@ -64,6 +64,8 @@
 		<Unit filename="objet/soleil.h" />
 		<Unit filename="plan.cpp" />
 		<Unit filename="plan.h" />
+		<Unit filename="save/save.cpp" />
+		<Unit filename="save/save.h" />
 		<Unit filename="scene.cpp" />
 		<Unit filename="scene.h" />
 		<Unit filename="svg/svgfile.cpp" />

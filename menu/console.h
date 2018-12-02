@@ -12,7 +12,8 @@ enum Color
     COLOR_BLUE = 4,
     COLOR_YELLOW = 5,
     COLOR_PURPLE = 6,
-    COLOR_DEFAULT = 7, // gris couleur de base de la console
+    COLOR_DEFAULT = 7,// gris couleur de base de la console
+    COLOR_CYAN = 11,
 };
 
 class Console

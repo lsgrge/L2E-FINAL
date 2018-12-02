@@ -35,5 +35,7 @@ class Couleur
 };
 
 Couleur choixcouleur(std::mt19937& graine);
+Couleur choixcouleur(int posDicoCouleur);
+
 
 #endif // COULEUR_H_INCLUDED

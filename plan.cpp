@@ -20,7 +20,7 @@ void Plan::plan1()
     int de, a;
 
     amplitude(de, a);
-    std::cout << "Test " << test << std::endl;
+    //std::cout << "Test " << test << std::endl;
 
     switch(test)
     {
@@ -34,7 +34,7 @@ void Plan::plan1()
             break;
         case 1 : ///choix immeuble
             int nbre = util::alea(de*5,a*5,m_graine);
-            std::cout << "Nombre immeuble choisi " << nbre << std::endl;
+            //std::cout << "Nombre immeuble choisi " << nbre << std::endl;
             for (int i=0; i<nbre; i++)
             {
                 Immeuble* nouv = new Immeuble;
@@ -137,6 +137,7 @@ void Plan::liberer()
             pt->liberer();
         if(pP)
             pt->liberer();
+
 
 
         delete pt;

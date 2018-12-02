@@ -7,17 +7,17 @@ void filtre(Svgfile& svgout)
         svgout.addTraits(0, i, 1000, hauteur, "blue", "pink");
 }
 
-void Scene::initialiser()
+void Scene::initialiser(std::vector<std::mt19937> graine, std::vector<double> densite, std::vector<Couleur> couleur)
 {
     m_couleur_fond=Couleur{24, 24, 24};
-    std::mt19937 graine{69};
+    //std::mt19937 graine{69};
 
     for(size_t i=0; i<3; ++i)
     {
         m_plans.push_back(new Plan);
-        Couleur couleur=choixcouleur(graine);
-        int densite=util::alea(0, 2, graine);
-        m_plans[i]->remplir(graine, couleur, densite);
+        //Couleur couleur = choixcouleur(graine);
+        //int densite=util::alea(0, 2, graine);
+        m_plans[i]->remplir(graine[i], couleur[i], densite[i]);
     }
 
     /**initialisation*/
