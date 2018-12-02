@@ -153,12 +153,18 @@ void Plan::amplitude(int& min, int& max)
             max=4;
             break;
         case 1: /** intervalle grand*/
-            min=1;
-            max=2;
-            break;
-        case 2: /** intervalle petit*/
             min=4;
             max=6;
+            /*
+            min=1;
+            max=2;*/
+            break;
+        case 2: /** intervalle petit*/
+            min=1;
+            max=2;
+            break;/*
+            min=4;
+            max=6;*/
             break;
     }
 }

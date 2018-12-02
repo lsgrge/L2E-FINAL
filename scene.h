@@ -6,7 +6,7 @@
 class Scene
 {
     public :
-        void initialiser(std::vector<std::mt19937> graine, std::vector<double> densite, std::vector<Couleur> couleur);
+        void initialiser(std::vector<std::mt19937>& graine, std::vector<double>& densite, std::vector<Couleur>& couleur);
         void dessiner();
         void liberer();
 

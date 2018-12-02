@@ -7,7 +7,7 @@ void filtre(Svgfile& svgout)
         svgout.addTraits(0, i, 1000, hauteur, "blue", "pink");
 }
 
-void Scene::initialiser(std::vector<std::mt19937> graine, std::vector<double> densite, std::vector<Couleur> couleur)
+void Scene::initialiser(std::vector<std::mt19937>& graine, std::vector<double>& densite, std::vector<Couleur>& couleur)
 {
     m_couleur_fond=Couleur{24, 24, 24};
     //std::mt19937 graine{69};

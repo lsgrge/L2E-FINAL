@@ -12,7 +12,7 @@
 
 int main()
 {
-
+    std::vector<int> graineTmp;
     std::vector<std::mt19937> graine;
     std::vector<double> densite;
     std::vector<Couleur> couleur;
@@ -25,15 +25,24 @@ int main()
     int choix = 0;
 
     for(int i = 0; i<3; i++)
-            {
-                graine.push_back((std::mt19937)util::alea(1, 100000));
-                densite.push_back(util::alea(0, 2));
-                couleur.push_back(choixcouleur(graine[i]));
-            }
+    {
+        graineTmp.push_back(util::alea(1, 100000));
+        //graine.push_back((std::mt19937)util::alea(1, 100000));
+        graine.push_back((std::mt19937)graineTmp[i]);
+        densite.push_back(util::alea(0, 2));
+        couleur.push_back(choixcouleur(graine[i]));
+    }
+    //for(int i =0; i < 3; i++)
+     //std::cout << (int)couleur[i].getRouge() << "v:    " << couleur[i].getVert() <<"b:          "<< couleur[i].getBleu() << "r:          " << std::endl;
+    //while(1)1;
 
     do{
 
         retro = new Scene();
+
+        for(int i = 0; i<3; i++)
+            graine[i] = (std::mt19937)graineTmp[i];
+
         retro->initialiser(graine, densite, couleur);
         retro->dessiner();
         retro->liberer();
@@ -48,13 +57,16 @@ int main()
         case 1: /// SCENE ALEATOIRE
             system("cls");
 
+            graineTmp.clear();
             graine.clear();
             densite.clear();
             couleur.clear();
 
             for(int i = 0; i<3; i++)
             {
-                graine.push_back((std::mt19937)util::alea(1, 100000));
+                graineTmp.push_back(util::alea(1, 100000));
+                //graine.push_back((std::mt19937)util::alea(1, 100000));
+                graine.push_back((std::mt19937)graineTmp[i]);
                 densite.push_back(util::alea(0, 2));
                 couleur.push_back(choixcouleur(graine[i]));
             }
@@ -83,7 +95,8 @@ int main()
             break;
 
         case 212: /// selection plan 1 à modif + graine
-            graine[2] = (std::mt19937)affichageChoixGraine(pConsole);
+            graineTmp[2] = affichageChoixGraine(pConsole);
+//            graine[2] = (std::mt19937)affichageChoixGraine(pConsole);
             break;
 
 /*-------------------------------------------------------------------------*/
@@ -99,7 +112,7 @@ int main()
             densite[1] = (double)interaction(4, 40, 2, pConsole, 1);
             break;
         case 222: /// selection plan médian à modif + graine
-            graine[1] = (std::mt19937)affichageChoixGraine(pConsole);
+            graineTmp[1] = affichageChoixGraine(pConsole);
             break;
 
 /*-------------------------------------------------------------------------*/
@@ -115,7 +128,7 @@ int main()
             densite[0] = (double)interaction(4, 40, 2, pConsole, 1);
             break;
         case 232: /// selection background à modif + Graine
-            graine[0] = (std::mt19937)affichageChoixGraine(pConsole);
+            graineTmp[0] = affichageChoixGraine(pConsole);
             break;
 
 
@@ -124,10 +137,13 @@ int main()
 /*-------------------------------------------------------------------------*/
 
         case 3: ///Sauvegarde
-            saveScene(graine, densite, couleur);
+            saveScene(graineTmp, densite, couleur);
             break;
         case 4: ///Loading Save
-
+            loadSaveScene(graineTmp, densite, couleur);
+             for(int i =0; i < 3; i++)
+     std::cout << (int)couleur[i].getRouge() << "v:    " << (int)couleur[i].getVert() <<"b:          "<< (int)couleur[i].getBleu() << "r:          " << std::endl;
+    //while(1)1;
             break;
 
         case 10: // QUITTER
@@ -137,7 +153,7 @@ int main()
 
     }while(choix != 10);
 
-
+    graineTmp.clear();
     graine.clear();
     densite.clear();
     couleur.clear();
