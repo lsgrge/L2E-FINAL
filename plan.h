@@ -11,9 +11,6 @@ class Plan
 {
     public :
         void remplir(const std::mt19937& graine, const Couleur couleur, const double densite);
-        void paramtre_graine(const std::mt19937& graine);
-        void parametre_couleur(const Couleur couleur);
-        void parametre_densite(const int choix);
         void dessiner(Svgfile& svgout);
         void gradient(Svgfile& svgout, const Couleur fond);
         void etoiles(Svgfile& svgout);

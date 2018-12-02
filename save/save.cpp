@@ -24,8 +24,6 @@ void saveScene(std::vector<int>& graineTmp, std::vector<double>& densite, std::v
             ofs << (int)couleur[i].getVert() << std::endl;
             ofs << (int)couleur[i].getBleu() << std::endl;
 
-            //std::cout << couleur[i].getRouge() << "v:    " << couleur[i].getVert() <<"b:          "<< couleur[i].getBleu() << "r:          "<<std::endl;
-
         }
 
         ofs.close();
@@ -63,20 +61,13 @@ void loadSaveScene(std::vector<int>& graineTmp, std::vector<double>& densite, st
             ifs >> v;
             ifs >> b;
 
-            //std::cout << r << "v:    " << v <<"b:          "<< b << "r:          ";
-
             couleur.push_back(Couleur{(uint8_t)r, (uint8_t)v, (uint8_t)b});
 
         }
 
 
         ifs.close();
-        /*if(ifs.fail())
-        {
-            graineTmp.clear();
-            densite.clear();
-            std::cerr << "Corrupted/incomplete vecdata.txt\n";
-        }*/
+
     }
 
 

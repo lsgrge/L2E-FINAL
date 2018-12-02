@@ -44,7 +44,6 @@ void Montagne::initialiser(std::mt19937& graine)
 
 void Montagne::liberer()
 {
-   // std::cout << "Testtttt\n";
     for(const auto pt:m_montagnes)
     {
         pt->enlever_triangle();

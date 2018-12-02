@@ -24,7 +24,7 @@ void Palmier::dessiner(Svgfile& svgout, std::mt19937& graine)
     }
 }
 
-void Palmier::initialiser(std::mt19937& graine, double dep, Coords posBG, double signe)
+void Palmier::initialiser(std::mt19937& graine, double dep, Coords posBG, double signe, double taille)
 {
     /**Tronc*/
     m_architecture.push_back(new Coords{posBG}); ///pt0
@@ -59,6 +59,11 @@ void Palmier::initialiser(std::mt19937& graine, double dep, Coords posBG, double
     m_architecture.push_back(new Coords{posBG.getX() +signe*dep, posBG.getY() -dep*7.5}); ///pt27
     m_architecture.push_back(new Coords{posBG.getX() -signe*dep*0.5, posBG.getY() -dep*4.5}); ///pt28
     m_architecture.push_back(new Coords{posBG.getX() +signe*dep*0.5, posBG.getY() -dep*6}); ///pt29
+
+
+
+    for (auto& coo : m_architecture)
+        *coo*taille;
 
 }
 

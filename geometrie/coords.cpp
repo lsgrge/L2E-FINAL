@@ -57,6 +57,11 @@ double operator*(const Coords& c1, const Coords& c2)
     return c1.m_x*c2.m_x + c1.m_y*c2.m_y ;
 }
 
+Coords Coords::operator*(const double& k)
+{
+    return Coords(k*getX(),k*getY());
+}
+
 /// Multiplication par un réel
 Coords operator*(double m, const Coords& c)
 {

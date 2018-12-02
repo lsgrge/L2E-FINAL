@@ -17,18 +17,17 @@ void Soleil::def_ton()
 
 void Soleil::dessinersoleil(Svgfile& svgout, std::mt19937& graine)
 {
-    int choix=util::alea(1, 2, graine);
-    std::cout << "choix pour le soleil (1.ton / 2.degrade) :" << choix << std::endl;
+    int choix=util::alea(1, 3, graine);
+    //std::cout << "choix pour le soleil (1.ton / 2.degrade) :" << choix << std::endl;
+
+    while((m_couleur.getRouge() == m_secondaire.getRouge() && m_couleur.getVert() == m_secondaire.getVert() && m_couleur.getBleu() == m_secondaire.getBleu())||(m_couleur.getRouge() == 255 && m_couleur.getVert() == 255 && m_couleur.getBleu() == 255))
+        m_couleur = choixcouleur(graine);
 
     if(choix == 1)
         def_ton();
 
-    if(m_couleur.getRouge() == 255 && m_couleur.getVert() == 255 && m_couleur.getBleu() == 255)
-        m_couleur = choixcouleur(graine);
-
     svgout.linearGradient("gradS", 0, 0, 10, 100, 0, m_couleur, 1, 100, m_secondaire);
     svgout.addSoleil(m_centre.getX(), m_centre.getY(), m_rayon, "gradS");
-
 }
 
 void Soleil::dessinerrect(Svgfile& svgout)
@@ -66,7 +65,6 @@ void Soleil::remplirCouleur(const Couleur couleur, std::mt19937& graine)
     m_centre = {500,300};
     m_couleur = couleur;
     m_secondaire = choixcouleur(graine);
-    std::cout << "la deuxieme couleur : ";
     m_secondaire.afficher();
 }
 

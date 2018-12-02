@@ -30,6 +30,9 @@ class Coords
         /// Produit vectoriel
         friend double operator*(const Coords& c1, const Coords& c2);
 
+        Coords operator*(const double& k);
+
+
         /// Multiplication par un réel
         friend Coords operator*(double m, const Coords& c);
 

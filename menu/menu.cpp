@@ -5,7 +5,6 @@ void openFile()
 {
 	std::ifstream ifs{"menu/menu.txt"};
 	if(!ifs)
-		//std::runtime_error("Erreur ouverture fichier");
 		std::cerr << "erreur fichier menu.txt";
 	else
 	{
@@ -62,8 +61,6 @@ int menuStd()
     }while (!action);
 
     Console::deleteInstance();
-//system("cls");
-
 
     return action;
 }
@@ -89,9 +86,9 @@ int selectPlanModif(Console* pConsole)
     case 0: //Modif Premier Plan
         system("cls");
         std::cout << "> MODIFICATION DU 1ER PLAN : \n\n  >  Choix de la couleur majeur\n\n     Mesures de la grille\n\n     Graine";
-        //while(!pConsole->isKeyboardPressed())1;
         action = 210 + interaction(2, 2, 2, pConsole, 2);
         break;
+
     case 1:  //Plan Median
         system("cls");
         std::cout << "> MODIFICATION DU PLAN MEDIAN: \n\n  >  Choix de la couleur majeur\n\n     Densite des montagnes/batiments\n\n     Graine";

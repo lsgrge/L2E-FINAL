@@ -20,7 +20,6 @@ void Plan::plan1()
     int de, a;
 
     amplitude(de, a);
-    //std::cout << "Test " << test << std::endl;
 
     switch(test)
     {
@@ -34,7 +33,6 @@ void Plan::plan1()
             break;
         case 1 : ///choix immeuble
             int nbre = util::alea(de*5,a*5,m_graine);
-            //std::cout << "Nombre immeuble choisi " << nbre << std::endl;
             for (int i=0; i<nbre; i++)
             {
                 Immeuble* nouv = new Immeuble;
@@ -52,31 +50,16 @@ void Plan::plan2()
     maGrid->remplir(tailleCase, m_couleur);
     m_objets.push_back(maGrid);
 
+    Palmier* coteG2 = new Palmier;
+    coteG2->remplir(m_couleur);
+    coteG2->initialiser(m_graine, tailleCase*0.7, Coords{0, 800-tailleCase}); //i/tailleTmp +0.1);
+    m_objets.push_back(coteG2);
 
-    Palmier* coteG = new Palmier;
-    coteG->remplir(m_couleur);
-    coteG->initialiser(m_graine, tailleCase*0.7, Coords{0, 800-tailleCase});
-    m_objets.push_back(coteG);
+    Palmier* coteD2 = new Palmier;
+    coteD2->remplir(m_couleur);
+    coteD2->initialiser(m_graine, tailleCase*0.7, Coords{1000, 800-tailleCase}, -1);//, //i/tailleTmp +0.1);
+    m_objets.push_back(coteD2);
 
-    Palmier* coteD = new Palmier;
-    coteD->remplir(m_couleur);
-    coteD->initialiser(m_graine, tailleCase*0.7, Coords{1000, 800-tailleCase}, -1);
-    m_objets.push_back(coteD);
-}
-
-void Plan::paramtre_graine(const std::mt19937& graine)
-{
-    m_graine=graine;
-}
-
-void Plan::parametre_couleur(const Couleur couleur)
-{
-    m_couleur=couleur;
-}
-
-void Plan::parametre_densite(const int choix)
-{
-    m_densite=choix;
 }
 
 void Plan::dessiner(Svgfile& svgout)
@@ -152,16 +135,10 @@ void Plan::amplitude(int& min, int& max)
         case 1: /** intervalle grand*/
             min=4;
             max=6;
-            /*
-            min=1;
-            max=2;*/
             break;
         case 2: /** intervalle petit*/
             min=1;
             max=2;
-            break;/*
-            min=4;
-            max=6;*/
             break;
     }
 }

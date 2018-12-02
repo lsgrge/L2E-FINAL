@@ -27,14 +27,11 @@ int main()
     for(int i = 0; i<3; i++)
     {
         graineTmp.push_back(util::alea(1, 100000));
-        //graine.push_back((std::mt19937)util::alea(1, 100000));
         graine.push_back((std::mt19937)graineTmp[i]);
         densite.push_back(util::alea(0, 2));
         couleur.push_back(choixcouleur(graine[i]));
     }
-    //for(int i =0; i < 3; i++)
-     //std::cout << (int)couleur[i].getRouge() << "v:    " << couleur[i].getVert() <<"b:          "<< couleur[i].getBleu() << "r:          " << std::endl;
-    //while(1)1;
+
 
     do{
 
@@ -65,12 +62,10 @@ int main()
             for(int i = 0; i<3; i++)
             {
                 graineTmp.push_back(util::alea(1, 100000));
-                //graine.push_back((std::mt19937)util::alea(1, 100000));
                 graine.push_back((std::mt19937)graineTmp[i]);
                 densite.push_back(util::alea(0, 2));
                 couleur.push_back(choixcouleur(graine[i]));
             }
-           	//ShellExecute(NULL, "open", "dessin.svg", NULL, NULL, SW_SHOWNORMAL);
 
             break;
 
@@ -96,7 +91,6 @@ int main()
 
         case 212: /// selection plan 1 à modif + graine
             graineTmp[2] = affichageChoixGraine(pConsole);
-//            graine[2] = (std::mt19937)affichageChoixGraine(pConsole);
             break;
 
 /*-------------------------------------------------------------------------*/
@@ -141,9 +135,6 @@ int main()
             break;
         case 4: ///Loading Save
             loadSaveScene(graineTmp, densite, couleur);
-             for(int i =0; i < 3; i++)
-     std::cout << (int)couleur[i].getRouge() << "v:    " << (int)couleur[i].getVert() <<"b:          "<< (int)couleur[i].getBleu() << "r:          " << std::endl;
-    //while(1)1;
             break;
 
         case 10: // QUITTER
@@ -158,9 +149,6 @@ int main()
     densite.clear();
     couleur.clear();
     Console::deleteInstance();
-
-
-	//ShellExecute(NULL, "open", "dessin.svg", NULL, NULL, SW_SHOWNORMAL);
 
     return 0;
 }
