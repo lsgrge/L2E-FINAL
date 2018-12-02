@@ -57,11 +57,15 @@ void Grid::dessiner(Svgfile &svgout, std::mt19937& graine)
     double ecartMin = 1, ecartMax = m_ecart;
     double y = 0;
 
+    Couleur m_colFin=choixcouleur(graine);
+    while(m_col.getRouge()==m_colFin.getRouge() && m_col.getVert()==m_colFin.getVert() &&m_col.getBleu()==m_colFin.getBleu()) m_colFin=choixcouleur(graine);
+
+    svgout.linearGradient("gradL", 0, 0, 100, 0, 0, m_col, 1, 100, m_colFin);
 
     for(double i= -(1000); i<(1000); i+= m_ecart)
     {
     //if(i != 0)
-        svgout.addLine(i+(1000/2), 800, (1000/2)+getPointFuite(i), (800-m_ymax), m_col);
+        svgout.addLineG(i+(1000/2), 800, (1000/2)+getPointFuite(i), (800-m_ymax), 2, "gradL");
     }
 
     for(double z = 0; z < zmax; z += m_ecart)
@@ -69,10 +73,10 @@ void Grid::dessiner(Svgfile &svgout, std::mt19937& graine)
     //y += -((ecartMax - ecartMin)/zmax)*z+ecartMax;
         y += (1-z/zmax)*(ecartMax - ecartMin) +ecartMin;
         if(800-y >= 800-m_ymax)
-        svgout.addLine(-1000, 800-y, 1000, 800-y, m_col);
+        svgout.addLineG(0, 800-y, 1000, 800-y+0.1, 2, "gradL");
     }
 
-    svgout.addLine(-1000, 800-m_ymax, 1000, 800-m_ymax, m_col);
+    svgout.addLine(0, 800-m_ymax, 1000, 800-m_ymax, 1, "gradL");
 }
 
 void Grid::remplir(double ecart, Couleur col)

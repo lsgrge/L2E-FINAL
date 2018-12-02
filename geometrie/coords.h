@@ -24,6 +24,15 @@ class Coords
         /// Somme vectorielle
         friend Coords operator+(const Coords& c1, const Coords& c2);
 
+        /// Soustraction vectorielle
+        friend Coords operator-(const Coords& c1, const Coords& c2);
+
+        /// Produit vectoriel
+        friend double operator*(const Coords& c1, const Coords& c2);
+
+        /// Multiplication par un réel
+        friend Coords operator*(double m, const Coords& c);
+
 
     private :
         double m_x;

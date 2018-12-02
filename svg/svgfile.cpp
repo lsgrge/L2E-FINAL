@@ -17,7 +17,7 @@ Svgfile::Svgfile(std::string _filename, int _width, int _height) :
     m_filename{_filename}, m_width{_width}, m_height{_height}
 {
     if (s_verbose)
-        std::cout << "Opening SVG output file : "
+        std::cout << "\nOpening SVG output file : "
                   << m_filename << std::endl;
 
     if ( s_openfiles.count(m_filename) )
@@ -232,6 +232,31 @@ void Svgfile::addLine(double x1, double y1, double x2, double y2, std::string co
             << attrib("y2", y2)
             << attrib("stroke", color)
             << "/>\n";
+}
+
+void Svgfile::addLine(double x1, double y1, double x2, double y2, double width, std::string color)
+{
+    m_ostrm << "<line "
+            << attrib("x1", x1)
+            << attrib("y1", y1)
+            << attrib("x2", x2)
+            << attrib("y2", y2)
+            << " style=\"stroke:"
+            << color << ";stroke-width:"
+            << width
+            << "\" />\n";
+}
+
+void Svgfile::addLineG(double x1, double y1, double x2, double y2, double width, std::string id)
+{
+    m_ostrm << "<line "
+            << attrib("x1", x1)
+            << attrib("y1", y1)
+            << attrib("x2", x2)
+            << attrib("y2", y2)
+            << " style=\"stroke-width:"
+            << width << ";stroke:url(#"
+            << id <<")\" />\n";
 }
 
 void Svgfile::addCross(double x, double y, double span, std::string color)
